@@ -1,5 +1,3 @@
-'use client';
-
 import { cn } from '@/lib/utils';
 import {
     Card,
@@ -11,17 +9,14 @@ import {
 } from '@/components/ui/card';
 import Image from 'next/image';
 import ThemeSwitch from '@/components/custom/theme-switch';
-import { Button } from '@/components/ui/button';
-import { signInWithThird } from '@/components/login/actions';
+import LoginForm from '@/components/login/login-form';
+import { LoginButton } from '@/components/login/login-button';
+import { SparklesText } from '@/components/magicui/sparkles-text';
 
 const LoginPage = () => {
-    const handleLogin = async (type: string) => {
-        await signInWithThird(type);
-    };
-
     return (
-        <div className={cn('grid w-svw h-svh place-content-center')}>
-            <Card className={cn('sm:w-96 w-svw')}>
+        <div className={cn('flex flex-col gap-6')}>
+            <Card>
                 <CardHeader>
                     <CardTitle
                         className={cn(
@@ -38,15 +33,21 @@ const LoginPage = () => {
                                 height={56}
                                 alt="Qnets"
                             />
-                            Qnets Blog
+                            <SparklesText
+                                className={cn('block text-2xl')}
+                                sparklesCount={7}
+                                text="Qnets Blog"
+                            />
                         </div>
                         <ThemeSwitch />
                     </CardTitle>
                     <CardDescription>选择你喜欢的方式进行登录</CardDescription>
                 </CardHeader>
-                <CardContent>TODO</CardContent>
+                <CardContent>
+                    <LoginForm />
+                </CardContent>
                 <CardFooter>
-                    <div className={cn('grid w-full gap-4')}>
+                    <div className={cn('grid w-full gap-6')}>
                         <div
                             className={cn(
                                 'w-full flex items-center gap-3 before:h-px before:flex-1 before:bg-border after:h-px after:flex-1 after:bg-border'
@@ -58,14 +59,7 @@ const LoginPage = () => {
                                 或
                             </span>
                         </div>
-                        <Button onClick={() => handleLogin('github')}>
-                            <span
-                                className={cn(
-                                    'icon-[fa6-brands--github] text-lg'
-                                )}
-                            />
-                            使用 Github 登录
-                        </Button>
+                        <LoginButton type="github" />
                     </div>
                 </CardFooter>
             </Card>

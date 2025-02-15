@@ -6,14 +6,18 @@ import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
-export default function ThemeModeButton() {
+interface ThemeSwitchProps {
+    className?: string;
+}
+
+const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ className }) => {
     const { theme, setTheme } = useTheme();
 
     return (
         <Button
             variant="ghost"
             size="icon"
-            className={cn('rounded-full')}
+            className={cn('rounded-full', className)}
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
         >
             <Sun
@@ -30,4 +34,6 @@ export default function ThemeModeButton() {
             <span className="sr-only">Toggle theme</span>
         </Button>
     );
-}
+};
+
+export default ThemeSwitch;

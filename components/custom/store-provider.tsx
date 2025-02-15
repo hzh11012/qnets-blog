@@ -4,7 +4,14 @@ import { type PropsWithChildren, useRef } from 'react';
 import type { StoreType } from '@/store';
 import { initializeStore, Provider } from '@/store';
 
-export interface PreloadedStoreInterface {}
+export interface PreloadedStoreInterface {
+    user: {
+        id: string;
+        image: string;
+        name: string;
+        email: string;
+    };
+}
 
 export function StoreProvider({
     children,

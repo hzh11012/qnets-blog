@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { type Metadata } from 'next';
-
 import { PATHS, PATHS_MAP } from '@/constants';
 import { auth } from '@/lib/auth';
 import { redirect } from 'next/navigation';

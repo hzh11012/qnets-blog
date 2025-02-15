@@ -57,3 +57,30 @@
         @apply bg-background text-foreground;
     }
 }
+
+.required::after {
+    display: inline-block;
+    margin-inline-start: 4px;
+    color: #ff4d4f;
+    font-size: 14px;
+    line-height: 1;
+    content: '*';
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 6px;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+}

@@ -1,6 +1,6 @@
 'use server';
 
-import { signIn } from '@/lib/auth';
+import { signIn, signOut } from '@/lib/auth';
 import { PATHS } from '@/constants';
 
 const signInWithThird = async (type: string) => {
@@ -9,4 +9,10 @@ const signInWithThird = async (type: string) => {
     });
 };
 
-export { signInWithThird };
+const signOutAndRedirect = async () => {
+    await signOut({
+        redirectTo: PATHS.AUTH_SIGN_IN
+    });
+};
+
+export { signInWithThird, signOutAndRedirect };

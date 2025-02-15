@@ -49,6 +49,9 @@ export default {
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',
                 ring: 'hsl(var(--ring))'
+            },
+            backgroundImage: {
+                404: "url('/images/404.png')"
             }
         }
     },

@@ -5,6 +5,19 @@ const withBundleAnalyzer = NextBundleAnalyzer({
 });
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'avatars.githubusercontent.com'
+            },
+            {
+                protocol: 'http',
+                hostname: 'localhost'
+            }
+        ]
+    }
+};
 
 export default withBundleAnalyzer(config);

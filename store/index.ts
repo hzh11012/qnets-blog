@@ -3,13 +3,31 @@ import { createStore, useStore as useZustandStore } from 'zustand';
 import { PreloadedStoreInterface } from '@/components/custom/store-provider';
 
 export interface StoreInterface {
-    count: number;
-    setCount: (count: number) => void;
+    user: {
+        id: string;
+        name: string;
+        email: string;
+        image: string;
+    };
+    setUser: ({
+        id,
+        name,
+        email,
+        image
+    }: {
+        id: string;
+        name: string;
+        email: string;
+        image: string;
+    }) => void;
 }
 
 function getDefaultInitialState() {
     return {
-        count: 0
+        id: '',
+        name: '',
+        email: '',
+        image: ''
     } as const;
 }
 
@@ -31,9 +49,9 @@ export function initializeStore(preloadedState: PreloadedStoreInterface) {
     return createStore<StoreInterface>(set => ({
         ...getDefaultInitialState(),
         ...preloadedState,
-        setCount: count =>
+        setUser: user =>
             set({
-                count
+                user
             })
     }));
 }
